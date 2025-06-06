@@ -1,25 +1,24 @@
-function calculateAge() {
-  const dob = document.getElementById("dob").value;
-  if (!dob) return;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AGE CALCULATOR</h1>
+    <div class="input-group">
+      <input type="date" id="dob">
+      <button onclick="calculateAge()">Calculator</button>
+    </div>
+    <div class="result">
+      <div><span id="years">00</span><p>YEAR</p></div>
+      <div><span id="months">00</span><p>MONTH</p></div>
+      <div><span id="days">00</span><p>DAY</p></div>
+    </div>
+  </div>
 
-  const birthDate = new Date(dob);
-  const today = new Date();
-
-  let years = today.getFullYear() - birthDate.getFullYear();
-  let months = today.getMonth() - birthDate.getMonth();
-  let days = today.getDate() - birthDate.getDate();
-
-  if (days < 0) {
-    months--;
-    days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-  }
-
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  document.getElementById("years").textContent = years.toString().padStart(2, '0');
-  document.getElementById("months").textContent = months.toString().padStart(2, '0');
-  document.getElementById("days").textContent = days.toString().padStart(2, '0');
-}
+  <script src="script.js"></script>
+</body>
+</html>
